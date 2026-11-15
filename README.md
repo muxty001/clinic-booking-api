@@ -51,7 +51,7 @@ Set the values in `.env`:
 | `MONGODB_URI` | Yes | Atlas connection string. An `mongodb+srv://` URI must not include a port. |
 | `MONGODB_DB` | No | Database name; defaults to the database encoded in the URI. |
 | `API_KEY` | Yes | Secret expected in `X-API-Key` for API access. |
-| `APP_URL` | No | Public application origin, useful for custom production domains. Vercel's `VERCEL_URL` is used when present. |
+| `APP_URL` | No | Public application origin. For this production deployment, set it to `https://clinicbookingkoyaapi-hidq.vercel.app`. |
 
 Start the application:
 
@@ -102,7 +102,7 @@ The integration suite loads `.env`, then overrides `MONGODB_DB` with `clinic_boo
 1. Import this GitHub repository into Vercel as a Next.js project. Keep the default Next.js build and output settings.
 2. In the Vercel project's Production (and Preview, if needed) environment variables, set `MONGODB_URI`, `MONGODB_DB` (optional), and `API_KEY`.
 3. Configure Atlas network access and the database user for the deployed application.
-4. Set `APP_URL` to the public HTTPS domain if using a custom domain. Otherwise the application uses Vercel's `VERCEL_URL` for server-side API calls.
+4. Set `APP_URL=https://clinicbookingkoyaapi-hidq.vercel.app` in Vercel's Production environment variables. Preview deployments can use Vercel's `VERCEL_URL` when `APP_URL` is not set.
 5. Deploy, then verify `GET https://<deployment>/slots` with the `X-API-Key` header and verify the patient page loads. Do not include the key in a browser request or public URL.
 
 ## Deployment and repository status

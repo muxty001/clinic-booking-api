@@ -9,6 +9,9 @@ function origin() {
     }
     return url;
   }
+  if (process.env.VERCEL_ENV === "production") {
+    return "https://clinicbookingkoyaapi-hidq.vercel.app";
+  }
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   if (process.env.NODE_ENV === "production") throw new Error("APP_URL or VERCEL_URL must be configured in production.");
   return "http://localhost:3000";
