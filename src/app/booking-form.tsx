@@ -39,12 +39,11 @@ export function BookingForm({ slots, loadError, initialIdempotencyKey }: Booking
   const [values, setValues] = useState<BookingFormValues>(
     initialBookingActionState.values,
   );
-  const [idempotencyKey, setIdempotencyKey] = useState(initialIdempotencyKey);
+  const idempotencyKey = state.idempotencyKey ?? initialIdempotencyKey;
   const router = useRouter();
 
   useEffect(() => {
     if (state.outcome === "conflict") {
-      setIdempotencyKey(crypto.randomUUID());
       router.refresh();
     }
   }, [router, state.revision, state.outcome]);

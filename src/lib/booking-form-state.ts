@@ -11,6 +11,7 @@ export interface BookingActionState {
   message: string;
   values: BookingFormValues;
   fieldErrors: Partial<Record<BookingFormField, string>>;
+  idempotencyKey?: string;
   booking?: {
     id: string;
     status: "confirmed" | "cancelled";

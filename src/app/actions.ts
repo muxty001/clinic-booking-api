@@ -1,5 +1,6 @@
 "use server";
 
+import { randomUUID } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { isCreateBookingInput } from "../lib/booking-store";
 import { internalApiRequest } from "../lib/internal-api";
@@ -65,6 +66,7 @@ export async function submitBooking(
         message: "That time is no longer available. Choose another appointment.",
         values,
         fieldErrors: { slot_id: "Choose an available appointment time." },
+        idempotencyKey: randomUUID(),
         revision: previousState.revision + 1,
       };
     }
