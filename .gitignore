@@ -1,3 +1,23 @@
 node_modules/
 .env
 npm-debug.log*
+*.log
+coverage/
+dist/
+build/
+.cache/
+.DS_Store
+Thumbs.db
+.vscode/
+/.next/
+/out/
+/.vercel/
+*.tsbuildinfo
+next-env.d.ts
+*.pem
+
+# AI Blueprint local workflow files
+.agents/
+.claude/
+blueprint/
+CLAUDE.md

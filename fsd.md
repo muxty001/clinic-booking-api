@@ -37,7 +37,6 @@ The API has no patient account or login contract. Do not imply that an email add
 - Email, SMS, or calendar notifications.
 - Payment, insurance, or medical-record workflows.
 - A patient-facing cancellation or booking-history UI; those API capabilities are specified below, but the requested page flow does not require these screens.
-- A chosen technology stack, database, or hosting provider until one is selected.
 
 ## 4. Delivery levels and acceptance criteria
 
@@ -187,7 +186,7 @@ No test runner or deployment target is currently configured in the workspace.
 
 ## 11. Open decisions
 
-- Select the application stack, persistent database, and hosting provider.
+- Select the MongoDB provider and confirm the Next.js deployment shape on Vercel.
 - Confirm whether `/reset` must be available in the deployed assessment environment. The OpenAPI contract includes it and requires API-key authentication; any stricter restriction may affect compatibility.
 - Clarify rate-limit window semantics and whether an idempotent replay counts as an attempt; the contract does not specify these edge cases.
 - Clarify idempotency-key scope and how request bodies are compared; the contract specifies same-key/same-body replay and same-key/different-body rejection but not key lifetime or scope.
